@@ -13,6 +13,7 @@
   </ul>
   <div class="rr-new-label">
     {{#if this.isAddingBand}}
+      <form class="rr-inline-form" {{on "submit" this.saveBand}}>
       <Input
         @type="text"
         @value={{this.newBandName}}
@@ -20,10 +21,9 @@
         placeholder="New band"
       />
       <button
-        type="button"
+        type="submit"
         class="rr-action-button"
         disabled={{this.isAddButtonDisabled}}
-        {{on "click" this.saveBand}}
       >
         Add
       </button>
@@ -34,6 +34,7 @@
       >
         {{fa-icon "times"}}
       </button>
+      </form>
     {{else}}
       <button
         type="button"
