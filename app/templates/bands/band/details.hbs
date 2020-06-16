@@ -5,8 +5,8 @@
   </button>
   <h3>Description</h3>
   {{#if this.isEditing}}
-  <Textarea class="rr-textarea" @value={{this.model.description}} /> 
+    <Textarea class="rr-textarea" @value={{this.model.description}} /> 
   {{else}}
-  <p class="lh-copy">{{this.model.description}}</p> 
+    <p class="lh-copy">{{this.model.description}}</p> 
   {{/if}}
 </section>

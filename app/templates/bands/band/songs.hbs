@@ -15,8 +15,8 @@
   {{/each}}
 </ul>
 <div class="rr-new-label">
-    {{#if this.isAddingSong}}
-      <form class="rr-inline-form" {{on "submit" this.saveSong}}>
+  {{#if this.isAddingSong}}
+    <form class="rr-inline-form" {{on "submit" this.saveSong}}>
       <Input
         @type="text"
         @value={{this.newSongName}}
@@ -37,15 +37,15 @@
       >
         {{fa-icon "times"}}
       </button>
-      </form>
-    {{else}}
-      <button
-        type="button"
-        class="avenir bn bg-transparent near-white"
-        data-test-rr="new-song-label"
-        {{on "click" this.addSong}}
-      >
-        {{fa-icon "plus"}} Add new song
-      </button>
-    {{/if}}
+    </form>
+  {{else}}
+    <button
+      type="button"
+      class="avenir bn bg-transparent near-white"
+      data-test-rr="new-song-label"
+      {{on "click" this.addSong}}
+    >
+      {{fa-icon "plus"}} Add new song
+    </button>
+  {{/if}}
 </div>
