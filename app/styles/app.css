@@ -173,3 +173,9 @@ a {
 .rr-textarea {
     width: 100%; padding: .5rem;
 }
+
+#ember-testing-container {
+    font-family: 'avenir next';
+    color: var(--near-white);
+    background-color: var(--mid-grey) !important;
+}
