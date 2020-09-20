@@ -7,6 +7,10 @@ export default Controller.extend({
   newSongName: '',
   sortBy: 'ratingDesc',
   searchTerm: '',
+  queryParams: {
+    sortBy: 's',
+    searchTerm: 'q'
+  },
 
   sortProperties: computed('sortBy', function() {
     let options = {
