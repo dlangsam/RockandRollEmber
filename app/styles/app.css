@@ -115,7 +115,7 @@ a {
 .rr-input {
     color: var(--input-color);
     border-style: solid;
-    border-width; 1px;
+    border-width: 1px;
     padding: .25rem;
 }
 
@@ -174,7 +174,7 @@ a {
     width: 100%; padding: .5rem;
 }
 
-.rr-control-panel {
+.rr-controls-panel {
     display: flex;
     padding-left: 1rem;
     padding-right: 0;

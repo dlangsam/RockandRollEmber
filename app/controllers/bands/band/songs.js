@@ -29,10 +29,6 @@ export default Controller.extend({
     this.set('isAddingSong', true);
   }),
 
-  updateSortBy: action(function(sortBy) {
-    this.set('sortBy', sortBy)
-  }),
-
   matchingSongs: computed('model.songs.@each.title', 'searchTerm',
   function() {
     let searchTerm = this.searchTerm.toLowerCase();
