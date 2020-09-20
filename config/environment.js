@@ -44,6 +44,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
+    ENV.apiHost = 'https://auth-api.rockandrollwithember.js.com';
     // here you can enable a production-specific feature
   }
 
