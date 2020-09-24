@@ -3,6 +3,35 @@ a {
     text-decoration: none;
 }
 
+:root {
+    --light-red: #ff725c;
+    --error-color: var(--light-red);
+}
+
+.rr-loading-pane {
+    margin: 25px auto;
+}
+
+.rr-loading-message {
+    text-align: center;
+}
+
+.rr-spinner {
+    background: url('/images/spinner.svg') no-repeat;
+    height: 31px;
+    width: 31px;
+    margin: 0 auto;
+}
+
+.rr-error-pane {
+    margin: 25px auto;
+}
+
+.rr-error-messsage {
+    text-align: center;
+    color: var(--error-color);
+}
+
 .rr-container {
     margin-left: auto;
     margin-right: auto;
