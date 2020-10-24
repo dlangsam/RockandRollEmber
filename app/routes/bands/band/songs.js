@@ -1,5 +1,6 @@
 import Route from '@ember/routing/route';
-import wait from 'rarwe/utils/wait';
+import { capitalize } from 'rarwe/helpers/capitalize';
+import { computed } from '@ember/object';
 
 export default Route.extend({
   model() {
@@ -10,4 +11,8 @@ export default Route.extend({
               newSongTitle: ''
             });
           },
+  newSongPlaceholder: computed('model.name', function() {
+    let bandName = this.model.name;
+    return `New ${capitalize(bandName)} song`
+  })
 });

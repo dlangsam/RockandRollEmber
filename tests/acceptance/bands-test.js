@@ -43,13 +43,13 @@ module('Acceptance | Bands', function(hooks) {
 
     await click('[data-test-rr=sort-by-title-desc]');
     assert.equal(currentURL(), '/bands/1/songs?s=titleDesc');
-    assert.dom('[data-test-rr=song-list-item]:first-child').hasText('Spinning in Daffodils', 'The first song is the one that comes last in the alphabet in the alphabet');
+    assert.dom('[data-test-rr=song-list-item]:first-child').hasText('Spinning In Daffodils', 'The first song is the one that comes last in the alphabet in the alphabet');
     assert.dom('[data-test-rr=song-list-item]:last-child').hasText('Elephants', 'The last song is the one that comes first in the alphabet');
 
     await click('[data-test-rr=sort-by-title-asc]');
     assert.equal(currentURL(), '/bands/1/songs?s=titleAsc');
     assert.dom('[data-test-rr=song-list-item]:first-child').hasText('Elephants', 'The first song is the one that comes firstin the alphabet');
-    assert.dom('[data-test-rr=song-list-item]:last-child').hasText('Spinning in Daffodils', 'The last song is the one that comes last in the alphabet');
+    assert.dom('[data-test-rr=song-list-item]:last-child').hasText('Spinning In Daffodils', 'The last song is the one that comes last in the alphabet');
 
     await click('[data-test-rr=sort-by-rating-desc]');
     assert.dom('[data-test-rr=song-list-item]:first-child').hasText('Elephants', 'The first song is the one that comes last in the alphabet in the alphabet');
@@ -58,7 +58,7 @@ module('Acceptance | Bands', function(hooks) {
     await click('[data-test-rr=sort-by-rating-asc]');
     assert.equal(currentURL(), '/bands/1/songs?s=ratingAsc');
     assert.dom('[data-test-rr=song-list-item]:first-child').hasText('Mind Eraser', 'The first song is the one that comes firstin the alphabet');
-    assert.dom('[data-test-rr=song-list-item]:last-child').hasText('Spinning in Daffodils', 'The last song is the one that comes last in the alphabet');
+    assert.dom('[data-test-rr=song-list-item]:last-child').hasText('Spinning In Daffodils', 'The last song is the one that comes last in the alphabet');
   });
 
   test('Search songs', async function(assert){
@@ -66,7 +66,7 @@ module('Acceptance | Bands', function(hooks) {
     this.server.create('song', {title: 'Elephants', rating: 5, band});
     this.server.create('song', { title: 'New Fang', rating: 4, band });
     this.server.create('song', { title: 'Mind Eraser, No Chaser', rating: 4, band });
-    this.server.create('song', { title: 'Spinning in Daffodils', rating: 5, band });
+    this.server.create('song', { title: 'Spinning In Daffodils', rating: 5, band });
     this.server.create('song', { title: 'No One Loves Me & Neither Do I', rating: 5, band });
 
     await visit('/');
