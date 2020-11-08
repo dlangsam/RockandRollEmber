@@ -2,12 +2,11 @@ import Base from 'ember-simple-auth/authenticators/base';
 import fetch from 'fetch';
 
 export default Base.extend({
-  // restore(data) {
-  // },
+  async restore(data) {
+    return data;
+  },
 
   async authenticate(username, password) {
-    console.log("Authenticate");
-    console.log(username, password);
     let response = await fetch('/token', {
       method: 'POST',
       headers: {
@@ -19,7 +18,6 @@ export default Base.extend({
         password
       })
     });
-    console.log(response);
     if (!response.ok){
       let error = await response.json();
       throw error;

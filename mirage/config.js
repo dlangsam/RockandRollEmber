@@ -2,8 +2,8 @@ import Response from 'ember-cli-mirage/response';
 
 export default function() {
   this.get('/bands', function(schema, request){
-    if(!request.requestHeaders.authorization){
-      //return new Response(401);
+    if(!request.requestHeaders['Authorization']){
+      return new Response(401);
     }
     return schema.bands.all();
   });

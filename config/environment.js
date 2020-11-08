@@ -17,6 +17,10 @@ module.exports = function(environment) {
       }
     },
 
+    'ember-simple-auth': {
+      routeifAlreadyAuthenticated: 'bands'
+    },
+
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created

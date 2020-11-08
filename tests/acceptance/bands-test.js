@@ -1,6 +1,6 @@
 import { module, test } from 'qunit';
 import { visit, click, fillIn, currentURL } from '@ember/test-helpers';
-import { createBand } from 'rarwe/tests/helpers/custom-helpers';
+import { loginAs, createBand } from 'rarwe/tests/helpers/custom-helpers';
 import { setupApplicationTest } from 'ember-qunit';
 import { setupMirage } from 'ember-cli-mirage/test-support';
 
@@ -12,6 +12,7 @@ module('Acceptance | Bands', function(hooks) {
     this.server.create('band', { name: 'Radiohead' });
     this.server.create('band', { name: 'Long Distance Calling' });
 
+    await loginAs('dave@tcv.com');
     await visit('/');
     
     assert.dom('[data-test-rr=band-link]').exists({ count: 2 }, 'All band links are rendered');
@@ -21,6 +22,7 @@ module('Acceptance | Bands', function(hooks) {
 
   test('Create a band', async function(assert) { 
     this.server.create('band', { name: 'Royal Blood' });
+    await loginAs('dave@tcv.com');
     await visit('/');
     await createBand('Caspian');
 
@@ -36,6 +38,7 @@ module('Acceptance | Bands', function(hooks) {
     this.server.create('song', { title: 'Mind Eraser', rating: 4, band });
     this.server.create('song', { title: 'Spinning in Daffodils', rating: 5, band });
 
+    await loginAs('dave@tcv.com');
     await visit('/');
     await click('[data-test-rr=band-link]');
     assert.dom('[data-test-rr=song-list-item]:first-child').hasText('Elephants', 'The first song is the highest ranked, first one in the alphabet');
@@ -69,6 +72,7 @@ module('Acceptance | Bands', function(hooks) {
     this.server.create('song', { title: 'Spinning In Daffodils', rating: 5, band });
     this.server.create('song', { title: 'No One Loves Me & Neither Do I', rating: 5, band });
 
+    await loginAs('dave@tcv.com');
     await visit('/');
     await click('[data-test-rr=band-link]');
     await fillIn('[data-test-rr=search-box]', 'no');
@@ -82,6 +86,12 @@ module('Acceptance | Bands', function(hooks) {
     'A matching song that comes sooner in the alphabet appears at the bottom');
     assert.ok(currentURL().includes('q=no'));
     assert.ok(currentURL().includes('s=titleDesc'));
+  });
+
+  test("Visit landing page without signing in", async function(assert){
+    await visit('/');
+    assert.dom('[data-test-rr=form-header]').hasText('Log in to R&R');
+    assert.dom('[data-test-rr=user-email]').doesNotExist();
   });
 });
         
