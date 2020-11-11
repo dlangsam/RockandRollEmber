@@ -12,6 +12,7 @@
         class="rr-input ml-auto"
         id="email"
         {{on "blur" (fn this.setShowErrors "email")}}
+        {{on "input"  this.resetBaseErrors}}
       />
     </div>
     <div class="rr-form-row-inline">
@@ -25,6 +26,7 @@
         class="rr-input ml-auto"
         id="password"
         {{on "blur" (fn this.setShowErrors "password")}}
+        {{on "input"  this.resetBaseErrors}}
       />
     </div>
     <div class="rr-form-footer">
